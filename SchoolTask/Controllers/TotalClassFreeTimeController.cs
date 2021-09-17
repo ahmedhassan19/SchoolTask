@@ -27,7 +27,7 @@ namespace SchoolTask.Controllers
                             day(SessionStartTime) as day,
                             MONTH(SessionStartTime) as month,
                             Year(SessionStartTime) as Year,
-                            6 - sum( cast(DATEDIFF(HOUR,cast(SessionStartTime as time),cast(SessionStartTime as time ))as float))  as ClassFreeTime
+                            6 - sum( cast(DATEDIFF(HOUR,cast(SessionStartTime as time),cast(SessionEndTime as time ))as float))  as ClassFreeTime
                             FROM classsession
                             inner join Classes on ClassSession.ClassID = Classes.ClassID
                             GROUP BY  ClassName,
